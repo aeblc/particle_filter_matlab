@@ -31,6 +31,8 @@ function [particles, weights, particle_mean, particle_covariance] = particleFilt
 %  A, B, u inputs are the last three inputs of this function. Alternatively
 %  you can put a function handle instead of A, B and u. Function must return 
 %  all updated particles. 
+%
+%  This function is a single iteration of the particle filter, use it in a loop. 
 
 
 
