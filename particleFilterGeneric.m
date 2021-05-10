@@ -44,7 +44,7 @@ function [particles, weights, particle_mean, particle_covariance] = particleFilt
         f = varargin{1};
         
         % get samples from p(x(t) | x(t-1), u(t-1))
-        particles = f(particles) + chol(Q) * randn(state_vector_length, particle_count);
+        particles = f(particles) + chol(Q, 'lower') * randn(state_vector_length, particle_count);
         
     elseif isa(varargin{1}, 'numeric')
 
@@ -53,7 +53,7 @@ function [particles, weights, particle_mean, particle_covariance] = particleFilt
         u = varargin{3};
         
         % get samples from p(x(t) | x(t-1), u(t-1))
-        particles = A * particles + B * u + chol(Q) * randn(state_vector_length, particle_count);
+        particles = A * particles + B * u + chol(Q, 'lower') * randn(state_vector_length, particle_count);
         
     end
    
